@@ -2,7 +2,7 @@
       <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Choose your path, young Skywalker...") %>
       <%= f.file_field :book_img %>
       <%= f.input :title, label: "Book Title" %>
-      <%= f.input :description, label: "Why I want to read it.." %>
+      <%= f.input :description, label: "Synopsis" %>
       <%= f.input :author, label: "Author" %>
-      <%= f.button :submit, "Engage.", class: "my-button" %>
+      <%= f.button :submit, "Engage.", :class => "btn-custom2" %>
     <% end %>
