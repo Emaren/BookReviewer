@@ -1,4 +1,10 @@
 <h1>Edit Book</h1>
 
 
-<%= render 'form' %>
+  <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
+    <%= f.select :category_id, @categories %>
+    <%= f.input :title, label: "Book Title" %>
+    <%= f.input :description, label: "Book Title: " %>
+    <%= f.input :author, label: "Author" %>
+    <%= f.button :submit, "Engage.", class: "my-button" %>
+    <% end %>

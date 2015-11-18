@@ -1,6 +1,7 @@
-    <%= simple_form_for @book do |f| %>
+    <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
+      <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Choose your path, young Skywalker...") %>
       <%= f.input :title, label: "Book Title" %>
       <%= f.input :description, label: "Why I want to read it.." %>
       <%= f.input :author, label: "Author" %>
       <%= f.button :submit, "Engage.", class: "my-button" %>
-      <% end %>
+    <% end %>
