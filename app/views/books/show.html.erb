@@ -18,7 +18,7 @@
       <h3 class="book-author"> <span>From</span> <%= @book.author %></h3>
       <h2 class="avg-rating">Average Rating</h2>
       <div class="average-review-rating" data-score=<%= @average_review %>></div>
-      <span class="number-of-reviews">Based on <%= @book.reviews.count %> reviews</span>
+      <span class="number-of-reviews">Based on <%= pluralize(@book.reviews.count, "review") %></span>
         <br>
       <% if user_signed_in? && @book.liked_by?(current_user) %>
       <%= link_to fa_icon("thumbs-up"), book_like_path(@book, @book.like_for(current_user)),
@@ -28,6 +28,15 @@
                       method: :post %>
       <% end %>
       <%= pluralize(@book.likes.count, "like") %>
+
+      <% if user_signed_in? && @book.favourited_by?(current_user) %>
+      <%= link_to fa_icon("star"), [@book, @book.favourite_for(current_user)],
+                method: :delete, class: "icon-big" %>
+      <% else %>
+      <%= link_to fa_icon("star-o"), book_favourites_path(@book), method: :post,
+                class: "icon-big" %>
+      <% end %>
+      <%= pluralize(@book.favourites.count, "favourite") %>
 
 
       <p class="book-desc"><%= @book.description %></p>

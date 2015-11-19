@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119003633) do
+ActiveRecord::Schema.define(version: 20151119014706) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 20151119003633) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favourites", ["book_id"], name: "index_favourites_on_book_id"
+  add_index "favourites", ["review_id"], name: "index_favourites_on_review_id"
+  add_index "favourites", ["user_id"], name: "index_favourites_on_user_id"
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
