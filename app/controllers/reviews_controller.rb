@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
         format.js { render :ajax_create }
       else
         format.html { render 'books/show' }
-        format.js   { render :create_failure }
+        format.js   { render :ajax_fail }
       end
     end
   end
@@ -39,8 +39,14 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+      @review = Review.find params[:id]
+
       @review.destroy
-      redirect_to book_path(@book)
+      respond_to do |format|
+        format.html { redirect_to book_path(@review.book) }
+        format.js   { render }
+      end
+
   end
 
 

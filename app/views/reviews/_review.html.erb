@@ -12,7 +12,9 @@
         <div class="links btn-group">
 
     <%= link_to "Edit", edit_book_review_path(review.book, review), class: "btn btn-custom" %>
-    <%= link_to "Delete", book_review_path(review.book, review), method: :delete, data: { confirm: "Confirm Deletion?"}, class: "btn btn-custom" %>
+    <%= link_to "Delete", book_review_path(review.book, review), method: :delete,
+                                                                 class: "btn btn-custom",
+                                                                 remote: true %>
 
         </div>
 
