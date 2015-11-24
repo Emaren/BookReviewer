@@ -16,10 +16,14 @@ class ReviewsController < ApplicationController
     @review.book_id = @book.id
     @review.user_id = current_user.id
 
-    if @review.save
-      redirect_to book_path(@book)
-    else
-      render 'new'
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to book_path(@book)}
+        format.js { render :ajax_create }
+      else
+        format.html { render 'books/show' }
+        format.js   { render :create_failure }
+      end
     end
   end
 
