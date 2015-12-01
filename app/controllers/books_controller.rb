@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
     before_action :find_book, only: [:show, :edit, :update, :destroy]
+    before_action :find_review, only: [:show, :edit, :update, :destroy]
 
     before_action :authenticate_user!, only: [:new, :edit, :show]
 
@@ -69,6 +70,10 @@ class BooksController < ApplicationController
 
     def find_book
       @book = Book.find params[:id]
+    end
+
+    def find_review
+      @review = Review.find params[:id]
     end
 
 end

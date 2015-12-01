@@ -1,25 +1,36 @@
+
 <div class="review" id="<%= dom_id(review) %>">
 
 
 <div class="review-rating" data-score="<%= review.rating %>"></div>
 
   <p class="review-comment"><%= review.comment %></p>
+    <div class="vote">
+
+    <%= link_to fa_icon("arrow-up"), {vote: {is_up: true}}, method: :post %>
+
+    </div>
+
+
+          <%= link_to fa_icon("thumbs-o-up"), book_review_likes_path(@book, @review), method: :post, class: "btn btn-custom" %>
+          <div class="links btn-group">
+
 
 
     <% if user_signed_in? %>
 
-      <% if review.user_id == current_user.id %>
+        <% if review.user_id == current_user.id %>
 
-        <div class="links btn-group">
 
-    <%= link_to "Edit", edit_book_review_path(review.book, review), class: "btn btn-custom" %>
-    <%= link_to "Delete", book_review_path(review.book, review), method: :delete,
-                                                                 class: "btn btn-custom",
-                                                                 remote: true %>
+      <%= link_to "Edit", edit_book_review_path(review.book, review), class: "btn btn-custom" %>
+      <%= link_to "Delete", book_review_path(review.book, review), method: :delete,
+                                                                   class: "btn btn-custom",
+                                                                   remote: true %>
+          </div>
 
-        </div>
+        <% end %>
 
-      <% end %>
+
 
     <% end %>
 

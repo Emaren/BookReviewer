@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :votes, dependent: :nullify
+  has_many :voted_questions, dependent: :nullify
   has_many :books, dependent: :nullify
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :nullify

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119014706) do
+ActiveRecord::Schema.define(version: 20151129020056) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -83,5 +83,14 @@ ActiveRecord::Schema.define(version: 20151119014706) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votes", force: :cascade do |t|
+    t.boolean  "is_up"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "votes", ["review_id"], name: "index_votes_on_review_id"
 
 end

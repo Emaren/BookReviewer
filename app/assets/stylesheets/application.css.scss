@@ -140,7 +140,7 @@
  }
 
  .book-links {
-
+   float: right;
  	.btn-custom {
  		padding: 3px 10px;
  		font-weight: 300;
@@ -166,7 +166,7 @@
 
  .book-info {
  	@include background-tile;
-
+  float: right;
  	.book-title {
  		margin-top: 0;
  		font-size: 2em;
@@ -212,7 +212,7 @@
  /* Reviews styles */
 
  .reviews {
-
+   float: left;
  	@include background-tile;
  	margin-top: 40px;
 
@@ -320,3 +320,11 @@
  	}
 
  }
+
+ #show-container {
+   padding-left: 2px;
+ }
+
+.vote {
+  padding-left: 150px;
+}
