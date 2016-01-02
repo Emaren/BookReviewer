@@ -107,6 +107,7 @@
  	padding: 8px 20px;
  	border-radius: 5px;
  	font-family: 'Ubuntu', sans-serif;
+
  	&:hover {
  		text-decoration: none;
  		background-color: darken(#f1c40f, 5%);
@@ -140,7 +141,7 @@
  }
 
  .book-links {
-
+   float: right;
  	.btn-custom {
  		padding: 3px 10px;
  		font-weight: 300;
@@ -161,12 +162,13 @@
  .book-show {
  	height: 475px;
  	width: 325px;
+  align-self: auto;
  	@include background-tile;
  }
 
  .book-info {
  	@include background-tile;
-
+  float: right;
  	.book-title {
  		margin-top: 0;
  		font-size: 2em;
@@ -212,7 +214,7 @@
  /* Reviews styles */
 
  .reviews {
-
+  position: absolute;
  	@include background-tile;
  	margin-top: 40px;
 
@@ -223,6 +225,8 @@
  	}
 
  	.review {
+
+
  		border-bottom: 1px solid gainsboro;
  		margin-bottom: 15px;
  		padding-bottom: 10px;
@@ -319,4 +323,8 @@
  		margin-top: 0;
  	}
 
+ }
+
+ #show-container {
+   padding-left: 2px;
  }

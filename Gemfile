@@ -19,7 +19,6 @@ source 'https://rubygems.org'
   gem 'awesome_print'
   gem 'font-awesome-rails'
 
-
   gem 'interactive_editor'
 
 group :development, :test do
@@ -33,4 +32,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
 end

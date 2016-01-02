@@ -13,15 +13,22 @@
 
     <div class="col-md-1">
 
+      <%= image_tag book.book_img.url(:book_index), class: "book" %>
       <a href="/books/<%= book.id %>">
-        <%= image_tag book.book_img.url(:book_index), class: "book" %>
+
+
+
+        <body>
+
+
+
+
       </a>
 
       </div>
 
     <% end %>
 
-  <%= link_to "Add Book", new_book_path %>
 
   </div>
 
